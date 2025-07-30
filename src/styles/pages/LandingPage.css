@@ -1,0 +1,95 @@
+/* Modern Landing Page Styles */
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #fffbe6 0%, #ffe5b4 100%);
+}
+.landing-content {
+  text-align: center;
+  background: #fff;
+  padding: 3rem 2rem 2rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  max-width: 700px;
+  margin-top: 3rem;
+}
+.landing-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ff9800;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+.brand {
+  color: #e67c00;
+  font-weight: 900;
+}
+.landing-subtitle {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.feature-card {
+  background: #fff8e1;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: transform 0.15s;
+}
+.feature-card:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+.feature-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.7rem;
+}
+.feature-card h3 {
+  font-size: 1.2rem;
+  color: #ff9800;
+  margin-bottom: 0.5rem;
+}
+.feature-card p {
+  font-size: 1rem;
+  color: #444;
+}
+.cta-section {
+  margin-top: 2rem;
+}
+.landing-start-btn {
+  display: inline-block;
+  padding: 0.85rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #ff9800 60%, #e67c00 100%);
+  border-radius: 2rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  transition: background 0.2s, transform 0.15s;
+}
+.landing-start-btn:hover {
+  background: linear-gradient(90deg, #e67c00 60%, #ff9800 100%);
+  transform: scale(1.05);
+}
+.cta-note {
+  margin-top: 1rem;
+  color: #888;
+  font-size: 0.98rem;
+}
+.landing-footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  color: #b88a00;
+  font-size: 1rem;
+  font-weight: 500;
+}

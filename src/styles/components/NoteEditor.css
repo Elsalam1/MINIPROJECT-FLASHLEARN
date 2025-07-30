@@ -1,0 +1,292 @@
+.note-editor {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--bg-light);
+  overflow: hidden;
+  height: 100%;
+  min-height: 500px;
+  animation: fadeIn 0.3s ease-in-out;
+  position: relative;
+  will-change: transform, opacity;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.note-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-primary-lightest);
+  border-bottom: 1px solid var(--color-primary-lighter);
+}
+
+.note-title-input {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text-dark);
+  width: 100%;
+  padding: 0.5rem;
+  transition: border-bottom 0.2s ease;
+}
+
+.note-title-input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.note-content-area {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  resize: none;
+  border: none;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  transition: background-color 0.3s ease;
+  overflow-y: auto;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+}
+
+.note-content-area:focus {
+  outline: none;
+}
+
+.note-content-area p {
+  margin-bottom: 1rem;
+}
+
+/* Hide unused toolbar-related styles but keep them for reference */
+.toolbar, .format-button, .toolbar-divider, .markdown-info-tooltip {
+  display: none;
+}
+
+/* Make formatting more visually distinct */
+.note-content-area strong {
+  font-weight: 700;
+  color: #000;
+}
+
+.note-content-area em {
+  font-style: italic;
+  color: #222;
+}
+
+.note-content-area u {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-primary);
+}
+
+.note-editor-tools {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-medium);
+  border-top: 1px solid var(--bg-dark);
+}
+
+.tool-btn {
+  background-color: var(--color-primary);
+  color: var(--text-dark);
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tool-btn:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown styles */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-btn {
+  background-color: transparent;
+  color: var(--text-medium);
+  font-weight: normal;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+}
+
+.dropdown-btn:hover {
+  background-color: var(--bg-medium);
+  color: var(--text-dark);
+}
+
+.ellipsis {
+  letter-spacing: 1px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: var(--bg-light);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-medium);
+}
+
+.slate-editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slate-editor-container [contenteditable="true"] {
+  padding: 1rem;
+  outline: none;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Heading styles */
+.note-content-area h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+.note-content-area h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #222;
+}
+
+/* List styles */
+.note-content-area ul,
+.note-content-area ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.note-content-area ul {
+  list-style-type: disc;
+}
+
+.note-content-area ol {
+  list-style-type: decimal;
+}
+
+.note-content-area li {
+  margin-bottom: 0.5rem;
+}
+
+/* Markdown info tooltip */
+.markdown-info-tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  cursor: help;
+}
+
+.markdown-info-icon {
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.markdown-info-tooltip:hover .markdown-info-icon {
+  opacity: 1;
+}
+
+.markdown-info-tooltip .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  width: max-content;
+  max-width: 250px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.markdown-info-tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.markdown-info-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+} 

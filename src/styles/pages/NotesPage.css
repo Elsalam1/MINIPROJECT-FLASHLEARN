@@ -1,0 +1,201 @@
+.notes-page {
+  display: flex;
+  height: 100%;
+  min-height: calc(100vh - 40px);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Loading state styles */
+.notes-page.loading {
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-message {
+  padding: 2rem;
+  background-color: var(--bg-medium);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--text-medium);
+  font-size: 1.2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.notes-sidebar {
+  width: 300px;
+  border-right: 1px solid var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  padding-right: 1rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.notes-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--bg-dark);
+}
+
+.notes-sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+.add-note-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-note-btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+.notes-list {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  padding-right: 5px;
+}
+
+/* Make sure the scrolling is contained in the notes list */
+.notes-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notes-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notes-list::-webkit-scrollbar-thumb {
+  background-color: var(--bg-dark);
+  border-radius: 10px;
+}
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+.note-item:hover {
+  background-color: var(--bg-medium);
+}
+
+.note-item.selected {
+  background-color: var(--color-primary-lightest);
+  border-left: 3px solid var(--color-primary);
+  font-weight: 500;
+  position: relative;
+}
+
+.note-item.selected .note-item-title {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.note-item:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+/* Pending state styling during transitions */
+.note-item.pending {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.note-item-details {
+  flex: 1;
+  overflow: hidden;
+  max-width: calc(100% - 30px);
+}
+
+.note-item-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-item-preview {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-item-date {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.delete-note-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.delete-note-btn:hover {
+  opacity: 1;
+}
+
+.notes-editor-container {
+  flex: 1;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: opacity 0.3s ease;
+  height: 100%;
+  overflow: hidden;
+}
+
+.empty-notes-message,
+.empty-editor-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--text-light);
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--bg-medium);
+  border-radius: 8px;
+}
+
+.empty-notes-message p,
+.empty-editor-message p {
+  max-width: 300px;
+} 
